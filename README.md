@@ -24,7 +24,7 @@ TWITTER_BEARER_TOKEN=your_bearer_token_here
 ## 3. Usage
 
 ### Running the Script
-1. Make the script executable:
+1. Make sure the script is executable:
 ```
 chmod +x Xextract.sh
 ```
