@@ -58,4 +58,5 @@ The script includes a built-in timer restriction to comply with X's API rate lim
 ## Important Notes
 - The Bearer Token provides access to public tweets only
 - Search is limited to recent tweets (approximately 7 days)
-- Rate limits apply as per X's API policies
+- Rate limits apply as per X's API policies  
+(1request per 15minutes for a `GET /2/tweets/:id` request)
