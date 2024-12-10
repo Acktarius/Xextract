@@ -5,6 +5,11 @@ This script allows you to search and extract replies to a specific tweet on X (f
 
 ## 2. Prerequisites
 
+### Required Software
+- `jq`: JSON processor (command-line tool)
+  - **Ubuntu/Debian**: `sudo apt-get install jq`
+  - **Arch/Garuda**: `sudo pacman -S jq`
+
 ### Getting Your Bearer Token
 1. Go to the [X Developer Portal](https://developer.x.com)
 2. Sign in with your X account
@@ -47,6 +52,7 @@ The results will be:
 - Displayed in the terminal
 - Saved in `tweet_[ID]_data/formatted_replies.txt`
 - Raw JSON response saved in `tweet_[ID]_data/replies.json`
+- CSV format saved in `tweet_[ID]_data/CSV_formatted_replies.csv`
 
 ## 4. Rate Limiting Notes
 The script includes a built-in timer restriction to comply with X's API rate limits:
