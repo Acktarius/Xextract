@@ -71,6 +71,15 @@ elif echo "$response" | jq -e '.data' >/dev/null; then
         | select($tweet.author_id == $user.id) 
         | "Name: \($user.name)\nUsername: @\($user.username)\nTweet: \($tweet.text)\n"
     ' | tee "$output_dir/formatted_replies.txt"
+    # Create CSV output with headers and data
+    echo "Name,Username,Tweet" > "$output_dir/CSV_formatted_replies.csv"
+    cat "$output_dir/replies.json" | jq -r '
+        .data[] as $tweet 
+        | .includes.users[] as $user 
+        | select($tweet.author_id == $user.id) 
+        | [ $user.name, $user.username, $tweet.text ] 
+        | @csv
+    ' >> "$output_dir/CSV_formatted_replies.csv"
 else
     echo "No replies found for this tweet ID with the given filters."
     echo "$response" > "$output_dir/replies.json"
