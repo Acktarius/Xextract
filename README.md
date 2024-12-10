@@ -66,3 +66,10 @@ The script includes a built-in timer restriction to comply with X's API rate lim
 - Search is limited to recent tweets (approximately 7 days)
 - Rate limits apply as per X's API policies  
 (1request per 15minutes for a `GET /2/tweets/:id` request)
+
+## Support the Project
+If you find this tool helpful, consider supporting its development by donating to this CCX (Conceal Network) address:
+```
+ccx7Zbm7PjafXKvb3naqpGXzhLtAXesKiR5UXUbfwD9MCf77XdvXf1TX64KdDjcTDb3E7dS6MGE2GKT3w4DuCb8H9dwvWWGuof
+```
+
