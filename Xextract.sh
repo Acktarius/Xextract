@@ -6,12 +6,24 @@
 # See LICENSE file for details.
 #filter tweets answer by word or hashtag
 
-source .env
-
-if [ -z "$TWITTER_BEARER_TOKEN" ]; then
-    echo "Bearer token not found in .env file"
+#Check for .env file
+if [ ! -f ".env" ]; then
+    echo "Error: .env file not found"
     exit 1
 fi
+source .env
+#check for token env variable.
+if [ -z "$TWITTER_BEARER_TOKEN" ]; then
+    echo "Bearer token not found in .env file"
+    echo "Please add 'TWITTER_BEARER_TOKEN=your_token' to your .env file"
+    exit 1
+fi
+# Check for jq
+if ! command -v jq >/dev/null 2>&1; then
+    echo -e "jq not found\nmake sure it is installed (sudo apt install jq)"
+    exit 1
+fi
+
 
 read -p "Enter tweet ID: " tweet_id
 read -p "Filter Tweet with keyword (press Enter to skip): " keyword
